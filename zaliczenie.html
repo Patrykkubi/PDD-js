@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/validator.js"></script>
+	<script type="text/javascript" src="tabelka.json"></script>
+    <script src="node_modules/tablesorter/dist/js/jquery.tablesorter.js"></script>
+    <link rel="stylesheet" href="node_modules/tablesorter/dist/css/theme.blue.css">
+    <script type="text/javascript" src=	"node_modules/tablesorter/dist/js/jquery.tablesorter.widgets.js"></script>
+	<script type="text/javascript"src="js/jquery-latest.js"></script>
+    <script>
+        $(function () {
+            $('#myTable').tablesorter({
+                widgets: ['zebra', 'columns'],
+                usNumberFormat: false,
+                sortReset: true,
+                sortRestart: true
+            });
+        });
+	</script>
+	
+    
+		
+		
+	
+		
+   
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md  navbar-dark bg-primary">
+  
+    <a class="navbar-brand" href="#">Strona główna</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto ">
+
+        <li class="nav-item">
+          <a class="nav-link" href="http://lcieszynski.zut.edu.pl/fileadmin/DPD/instrukcja_2019.pdf?fbclid=IwAR3HSOAX56gRW9BGWDGn9etDbfukeD6udB2W52ksO3_Ea8-kbGcS88pk1v8">Laboratoria</a>
+        </li>
+
+
+      </ul>
+
+  
+      <ul class="nav navbar-nav form-inline my-2 my-lg-0">
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myexampleModal" onClick="koszyk()">
+  Koszyk
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Dodano do koszyka</p>
+				</div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+<!-- Modal -->
+<div class="modal fade" id="myexampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      	  <div class="modal-body">
+				<table class="table table-striped" id="table3">
+				  <thead>
+					<tr>
+					  <th scope="col">Nazwa</th>
+					  <th scope="col">Cena brutto</th>
+					  <th scope="col">liczba sztuk</th>
+					  <th scope="col">Akcje</th>
+					</tr>
+				  </thead>
+				  <tbody id="cartBody">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				  </tbody>
+				</table>
+				<select id="dostawa" onChange="koszyk()">
+					<option value="4.00">Poczta  4,00 zł</option>
+					<option value="12.00">Kurier  12,00 zł</option>
+					<option value="0.00">Odbior osobisty</option>
+					
+				</select>
+				<br>
+				<span id = "suma">Razem   </span>
+		  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">zamknij</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="kup" onClick="kup()">kup</button>
+      </div>
+    </div>
+  </div>
+</div>
+			
+        </li>
+      </ul>
+    </div>
+  
+  
+</nav>
+
+  <div class="container-fluid bg-light">
+      
+    <div class="row">
+        <div class="col-sm-12 col-lg-2 col-xl-3" style="background-color:lightseagreen;">
+            <p>one of three columns</p>
+            
+        </div>
+        <div class="col-sm-12 col-lg-8 col-xl-6" style="background-color:rgba(0,0,255,.1);">
+            
+										   
+								<fieldset>
+
+								
+
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="Nazwa_Towaru">Nazwa towaru</label>  
+								  <div class="col-md-4">
+								  <input id="Nazwa_Towaru" name="Nazwa_Towaru" type="text" class="form-control input-md" onChange="sprawdzNazwa_Towaru()">
+									<div id="Nazwa_Towaru_blad"></div>
+								  </div>
+								</div>
+
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="textinput">Kod towaru</label>  
+								  <div class="col-md-4">
+								  <input id="kod_towaru" name="kod_towaru" type="text"  class="form-control input-md" onChange="sprawdzkod_towaru()">
+									<div id="kod_towaru_blad"></div>
+								  </div>
+								</div>
+
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="textinput">Cena netto</label>  
+								  <div class="col-md-4">
+								  <input id="cena_netto" name="cena_netto" type="text"  class="form-control input-md"onChange="sprawdzcena_netto()" value="">
+									<div id="cena_netto_blad"></div>
+								  </div>
+								</div>
+
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="textinput">Stawka VAT</label>  
+								  <div class="col-md-4">
+								  <input id="stawka_VAT" name="stawka_VAT" type="text"  class="form-control input-md "onChange="sprawdzstawka_VAT()" >
+									<div id="stawka_VAT_blad"></div>
+								  </div>
+								</div>
+
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="textinput">Cena brutto</label>  
+								  <div class="col-md-4">
+								  <input id="cena_brutto" name="cena_brutto" type="text" placeholder="Kwota w złotówkach" class="form-control input-md" onBlur="sprawdzcena_brutto()" readonly>
+									<div id="cena_brutto_blad"></div>
+								  </div>
+								</div>
+
+								<!-- Select Basic -->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="selectbasic">Kategoria towarowa</label>
+								  <div class="col-md-4">
+									<select id="Kategoria_Towarowa" name="Kategoria_Towarowa" class="form-control"  onChange="sprawdzKategoria_Towarowa()"   >
+									  <option value="Opcja 1">Opcja 1</option>
+									  <option value="Opcja 2">Opcja 2</option>
+									  <option value="Opcja 3">Opcja 3</option>
+									</select>
+									<div id="Kategoria_Towarowa_blad"></div>
+								  </div>
+								</div>
+
+<!-- Multiple Checkboxes -->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="checkboxes">Opcje Towaru</label>
+								  <div class="col-md-4">
+								  
+								
+								<div id="myMenu">
+								<input id="a" type="checkbox" value="Opcja 1" class="mySubCheckBox" name="ParentCheckBox" onChange="sprawdzCheckBox()" >1</input></br>
+								<input id="b" type="checkbox" value="Opcja 2"class="mySubCheckBox" name="ParentCheckBox" onChange="sprawdzCheckBox()">2</input></br>
+								<input id="c" type="checkbox" value="Opcja 3"class="mySubCheckBox" name="ParentCheckBox" onChange="sprawdzCheckBox()">3</input></br>
+								<input id="d" type="checkbox" value="Opcja 4"class="mySubCheckBox" name="ParentCheckBox" onChange="sprawdzCheckBox()">4</input></br>
+								<input id="e" type="checkbox" value="Opcja 5"class="mySubCheckBox" name="ParentCheckBox" onChange="sprawdzCheckBox()">5</input></br>
+								</div>
+								<div id="checkBox_blad"></div>
+								
+									
+								  </div>
+								</div>
+
+								<!-- Multiple Radios -->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="radios">Ocena</label>
+								  <div class="col-md-4">
+								  <div class="radio" id="radio">
+									<label for="radios-0">
+									  <input type="radio" name="Ocena" id="Ocena1" value="1" checked="checked" onChange="sprawdzRadio()">
+									  1
+									</label><br>
+									
+								  
+									<label for="radios-1">
+									  <input type="radio" name="Ocena" id="Ocena2" value="2" onChange="sprawdzRadio()">
+									  2
+									</label><br>
+									
+								  
+									<label for="radios-2">
+									  <input type="radio" name="Ocena" id="Ocena3" value="3" onChange="sprawdzRadio()">
+									  3
+									</label><br>
+									
+								  
+									<label for="radios-3">
+									  <input type="radio" name="Ocena" id="Ocena4" value="4" onChange="sprawdzRadio()">
+									  4
+									</label><br>
+					
+									<label for="radios-4">
+									  <input type="radio" name="Ocena" id="Ocena5" value="5" onChange="sprawdzRadio()">
+									  5
+									</label><br>
+									 </div>
+									<div id="radio_blad"></div>
+								  </div>
+								</div>
+
+								<!-- File Button --> 
+								<div class="col-sm-5">
+                                <input type="text"  value ="domyslne.png"  class="form-control" placeholder="Wstaw zdjęcie produktu"
+                                    id="photo" 
+									onblur="sprawdzPhoto()">
+                                
+								</div>
+								<div id="photo_blad"></div>
+							
+							
+							
+								<!-- Button -->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="singlebutton"></label>
+								  <div class="col-md-4">
+									<button id="singlebutton" name="singlebutton" onClick="checkAll()" class="btn btn-primary">Dodaj</button>
+								  </div>
+								</div>
+
+								</fieldset>
+								
+
+</p>
+      </div>  
+        <div class="col-sm-12 col-lg-2 col-xl-3" style="background-color:lightseagreen;">
+		 
+            <div class="card col" style="width: 18rem; background-color: rgba(0,0,255,.1);;">
+				 <img class="card-img-top" src="pepe.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Patryk Kubicki</h5>
+					<p class="card-text">Witam serdecznie</p>
+					
+					
+					<a href="#" class="btn btn-primary">Zapraszam dalej</a>
+  </div>
+
+</div>
+
+  </div>       
+   </div>
+    </div>
+	  <div class="container-fluid mx-auto my-4">
+	<div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	zmień widok
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" onClick="pokazGalerie()">obrazki</a>
+    <a class="dropdown-item" onClick="pokazTabele()">lista</a>
+  </div>
+	<select id ="sortowanie" onClick="sortBy()">
+		<option value="0">sortuj</option>
+			<option value="1">Cena od najniższej</option>
+			<option value="2">Cena od najwyższej</option>
+			<option value="3">Ocena od najniższej</option>
+			<option value="4">Ocena od najwyżej</option>
+			<option value="5">nazwa od A</option>
+			<option value="6">nazwa od Z</option>
+		</select>
+	
+
+
+	<button id="loading" type="button" onClick="fromFileJson()">Załaduj dane z pliku</button><p></p>	
+	</div>	
+ </div>
+  	</div>	
+	<div class="table-responsive" style="margin-bottom: 50px;">
+	<table id="myTable" class="tablesorter-blue">
+                    <thead>
+                        <tr>
+                            <!-- dodaj klase do nagłówka -->
+                            <th>Nazwa towaru</th>
+                            <th class="sorter-false">Kod towaru</th>
+                            <th>Cena netto</th>
+                            <th class="sorter-false">VAT</th>
+                            <th class="sorter-false">Cena brutto</th>
+                            <th class="sorter-false">Kategoria towarowa</th>
+                            <th class="sorter-false">Opcje Towaru</th>
+                            <th>Ocena produktu</th>
+							<th class="sorter-false">Zdjęcie</th>
+                            <th class="sorter-false">Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+						
+                    </tbody>
+                </table>
+				</div>
+				<div id="view" class="container">
+				
+				
+				</div>
+				
+    <footer class="sticky-footer bg-primary  fixed-bottom" >
+      <div class="container text-center" style="color:white">
+        Stopka
+      </div>
+    </footer>
+	
+	
+	
+	
+	
+	
+</body>

@@ -1,0 +1,43 @@
+
+        * {
+            box-sizing: border-box;
+			
+        }
+       body{
+		   background-color:lightseagreen;
+	   }
+        .column {
+            float: left;
+            padding: 10px;
+            height: 2000px;
+        }
+        
+        .left,
+        .right {
+            width: 20%;
+        }
+        
+        .middle {
+            width: 60%;
+        }
+        
+        .navbar {
+            margin-bottom: 2%;
+			
+        }
+     
+        
+		.obrazki{
+			height: auto;
+			float:left;
+			margin-left:140px;
+			margin-bottom:50px;
+			width:auto;
+			
+		}
+	
+		
+		#view{
+		
+			width:auto
+		}

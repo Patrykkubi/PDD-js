@@ -1,0 +1,112 @@
+lista = [
+  {
+    "nazwa": "WoW",
+    "kod" : "ac-51",
+    "cena_netto" : "100",
+    "vat" : "23",
+    "cena_brutto" : "123",
+    "kategoria" : "Opcja 2",
+    "opcja" : "Opcja nr 1, Opcja nr 2",
+    "ocena" : "1",
+    "zdjecie" : "zdjecia/wow.jpg"
+  },
+  {
+    "nazwa": "samsung",
+    "kod" : "ca-55",
+    "cena_netto" : "1200",
+    "vat" : "23",
+    "cena_brutto" : "1476",
+    "kategoria" : "Opcja 2",
+    "opcja" : "Opcja nr 1, Opcja nr 3",
+    "ocena" : "2",
+    "zdjecie" : "zdjecia/samsung.jpg"
+  },
+  {
+    "nazwa": "Witcher 3",
+    "kod" : "vi-94",
+    "cena_netto" : "60",
+    "vat" : "23",
+    "cena_brutto" : "73.80",
+    "kategoria" : "Opcja 3",
+    "opcja" : "Opcja nr 3, Opcja nr 1",
+    "ocena" : "5",
+    "zdjecie" : "zdjecia/witcher.jpg"
+  },
+  {
+    "nazwa": "Manga ",
+    "kod" : "by-13",
+    "cena_netto" : "75",
+    "vat" : "23",
+    "cena_brutto" : "92.25",
+    "kategoria" : "Opcja 3",
+    "opcja" : "Opcja nr 2, Opcja nr 3",
+    "ocena" : "4",
+    "zdjecie" : "zdjecia/manga.jpg"
+  },
+  {
+    "nazwa": "Książka",
+    "kod" : "nv-32",
+    "cena_netto" : "50",
+    "vat" : "12",
+    "cena_brutto" : "62.25",
+    "kategoria" : "Opcja 1",
+    "opcja" : "Opcja nr 1, Opcja nr 3",
+    "ocena" : "4",
+    "zdjecie" : "zdjecia/ksiazka.jpg"
+  },
+  {
+    "nazwa": "Słuchawki",
+    "kod" : "12-ee",
+    "cena_netto" : "210",
+    "vat" : "23",
+    "cena_brutto" : "258.30",
+    "kategoria" : "Opcja 1",
+    "opcja" : "Opcja nr 2, Opcja nr 3",
+    "ocena" : "3",
+    "zdjecie" : "zdjecia/sluchawki.jpg"
+  },
+  {
+    "nazwa": "myszka",
+    "kod" : "co-91",
+    "cena_netto" : "190",
+    "vat" : "23",
+    "cena_brutto" : "233.70",
+    "kategoria" : "Opcja 3",
+    "opcja" : "Opcja nr 1, Opcja nr 2",
+    "ocena" : "3",
+    "zdjecie" : "zdjecia/mouse.jpg"
+  },
+  {
+    "nazwa": "słownik",
+    "kod" : "ef-42",
+    "cena_netto" : "35",
+    "vat" : "8",
+    "cena_brutto" : "37.80",
+    "kategoria" : "Opcja 3",
+    "opcja" : "Opcja nr 2, Opcja nr 3",
+    "ocena" : "5",
+    "zdjecie" : "zdjecia/ksiazka1.jpg"
+  },
+  {
+    "nazwa": "monitor",
+    "kod" : "cd-23",
+    "cena_netto" : "450",
+    "vat" : "23",
+    "cena_brutto" : "553.13",
+    "kategoria" : "Opcja 1",
+    "opcja" : "Opcja nr 2, Opcja nr 3, Opcja nr 1",
+    "ocena" : "1",
+    "zdjecie" : "zdjecia/monitor.jpg"
+  },
+  {
+    "nazwa": "Rower",
+    "kod" : "ab-12",
+    "cena_netto" : "4000",
+    "vat" : "23",
+    "cena_brutto" : "4920",
+    "kategoria" : "Opcja 1",
+    "opcja" : "Opcja nr 1, Opcja nr 3",
+    "ocena" : "4",
+    "zdjecie" : "zdjecia/bike.jpg"
+  }
+];
